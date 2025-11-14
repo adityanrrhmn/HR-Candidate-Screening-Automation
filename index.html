@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="color-scheme: light;">
+<html lang="en" style="color-scheme: dark;">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -11,12 +11,64 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
-        darkMode: false,
+        darkMode: 'class', // Using class strategy for dark mode
         theme: {
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
             },
+            colors: {
+              slate: {
+                950: '#0b1120',
+                900: '#0f172a',
+                800: '#1e293b',
+                700: '#334155',
+                600: '#475569',
+                500: '#64748b',
+                400: '#94a3b8',
+                300: '#cbd5e1',
+                200: '#e2e8f0',
+                100: '#f1f5f9',
+              },
+              teal: {
+                DEFAULT: '#14b8a6',
+                50: '#f0fdfa',
+                100: '#ccfbf1',
+                200: '#99f6e4',
+                300: '#5eead4',
+                400: '#2dd4bf',
+                500: '#14b8a6',
+                600: '#0d9488',
+                700: '#0f766e',
+                800: '#115e59',
+                900: '#134e4a',
+                950: '#042f2e',
+              },
+              purple: {
+                DEFAULT: '#8b5cf6',
+                50: '#f5f3ff',
+                100: '#ede9fe',
+                200: '#ddd6fe',
+                300: '#c4b5fd',
+                400: '#a78bfa',
+                500: '#8b5cf6',
+                600: '#7c3aed',
+                700: '#6d28d9',
+                800: '#5b21b6',
+                900: '#4c1d95',
+                950: '#2e1065',
+              },
+            },
+            animation: {
+              'float': 'float 4s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-10px)' },
+                '100%': { transform: 'translateY(0px)' },
+              }
+            }
           },
         },
       };
@@ -28,34 +80,17 @@
       }
 
       ::-webkit-scrollbar-track {
-        background: #e0e7ff; /* A light indigo background for the track */
-        border-radius: 10px;
+        background: #0f172a;
       }
 
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(to bottom, #6366f1, #8b5cf6); /* Gradient for the thumb */
+        background: #7c3aed; /* purple-600 */
         border-radius: 10px;
-        border: 2px solid #e0e7ff; /* Padding around thumb */
+        border: 3px solid #0f172a;
       }
 
       ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(to bottom, #4f46e5, #7c3aed); /* Darker gradient on hover */
-      }
-
-      /* Logo Animation */
-      @keyframes float {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
-      }
-      .animate-float {
-        animation: float 4s ease-in-out infinite;
+        background: #8b5cf6; /* purple-500 */
       }
     </style>
   <script type="importmap">
@@ -68,7 +103,7 @@
 }
 </script>
 </head>
-  <body class="bg-gradient-to-br from-indigo-400 to-purple-600 font-sans">
+  <body class="bg-slate-900 font-sans text-slate-200">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

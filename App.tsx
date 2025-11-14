@@ -93,7 +93,7 @@ const App: React.FC = () => {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setSubmitMessage('Application submitted successfully!');
+        setSubmitMessage('Application submitted successfully! We will get back to you soon.');
         setFormData({
           email: '',
           fullName: '',
@@ -127,7 +127,7 @@ I'd also be interested in exploring the other workflow demos you offer, especial
                 href={mailtoLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-indigo-600 hover:underline"
+                className="font-semibold text-purple-400 hover:underline"
               >
                 Aditya
               </a>{' '}
@@ -152,19 +152,21 @@ I'd also be interested in exploring the other workflow demos you offer, especial
     }
   }, [submitStatus]);
 
-  const iconClass = "h-5 w-5 text-gray-400";
+  const iconClass = "h-5 w-5 text-teal-400/80";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div className="relative min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 overflow-hidden bg-slate-900">
+      <div className="absolute top-0 left-0 -z-10 h-full w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(19,78,74,0.3),rgba(255,255,255,0))]"></div>
+
       <div className="text-center mb-8">
         <div className="inline-block animate-float">
-          <BuildingIcon className="h-16 w-16 text-white" />
+          <BuildingIcon className="h-16 w-16 text-purple-400" />
         </div>
-        <h1 className="text-4xl font-bold text-white mt-4">Join Our Team</h1>
-        <p className="text-indigo-100 mt-2">Fill out the form below to apply for available positions</p>
+        <h1 className="text-4xl font-bold text-slate-100 mt-4">Join Our Team</h1>
+        <p className="text-slate-400 mt-2">Fill out the form below to apply for available positions</p>
       </div>
 
-      <div className="max-w-2xl w-full mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl">
+      <div className="max-w-2xl w-full mx-auto bg-slate-800/50 backdrop-blur-lg p-8 sm:p-10 rounded-2xl shadow-2xl border border-slate-700">
         <form onSubmit={handleSubmit} noValidate className="space-y-2">
           <InputField
             id="fullName"
@@ -206,7 +208,7 @@ I'd also be interested in exploring the other workflow demos you offer, especial
             onChange={handleChange}
             error={errors.whatsappNumber}
             required
-            placeholder="+1 (555) 123-4567"
+            placeholder="+62 812 3456 7890"
             icon={<PhoneIcon className={iconClass} />}
           />
           <InputField
@@ -237,8 +239,8 @@ I'd also be interested in exploring the other workflow demos you offer, especial
           />
           
           <div>
-            <label htmlFor="cv" className="flex items-center text-sm font-medium text-gray-700 mb-1">
-              Upload CV <span className="text-red-500 ml-1">*</span>
+            <label htmlFor="cv" className="flex items-center text-sm font-medium text-slate-400 mb-1">
+              Upload CV <span className="text-red-400 ml-1">*</span>
             </label>
             <div className="mt-1">
               <input
@@ -247,14 +249,14 @@ I'd also be interested in exploring the other workflow demos you offer, especial
                 type="file"
                 accept=".pdf,.doc,.docx"
                 onChange={handleFileChange}
-                className={`block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4
+                className={`block w-full text-sm text-slate-400 file:mr-4 file:py-2 file:px-4
                   file:rounded-lg file:border-0 file:text-sm file:font-semibold
-                  file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100
+                  file:bg-purple-500/10 file:text-purple-300 hover:file:bg-purple-500/20
                   file:transition-colors file:duration-200
                   cursor-pointer
-                  ${errors.cv ? 'ring-2 ring-red-500 rounded-lg p-1' : ''}`}
+                  ${errors.cv ? 'ring-2 ring-red-500/50 rounded-lg p-1' : ''}`}
               />
-              <p className="mt-2 text-sm text-red-600 min-h-[1.25rem]">{errors.cv || ''}</p>
+              <p className="mt-2 text-sm text-red-400 min-h-[1.25rem]">{errors.cv || ''}</p>
             </div>
           </div>
 
@@ -272,7 +274,7 @@ I'd also be interested in exploring the other workflow demos you offer, especial
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 ease-in-out hover:shadow-md hover:-translate-y-px"
+              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-lg text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-purple-500 disabled:bg-slate-600 disabled:cursor-not-allowed transition-all duration-200 ease-in-out hover:shadow-purple-500/20 hover:-translate-y-px"
             >
               {isSubmitting ? 'Submitting...' : 'Submit Application'}
             </button>
@@ -280,14 +282,14 @@ I'd also be interested in exploring the other workflow demos you offer, especial
         </form>
       </div>
       
-      <footer className="text-center mt-8 text-indigo-100 text-sm">
+      <footer className="text-center mt-8 text-slate-500 text-sm">
         <p>
           Website Created by{' '}
           <a
             href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-semibold text-white hover:underline"
+            className="font-semibold text-purple-400 hover:underline"
           >
             Aditya
           </a>{' '}
@@ -299,20 +301,20 @@ I'd also be interested in exploring the other workflow demos you offer, especial
       </footer>
 
       {submitStatus !== 'idle' && (
-        <div className={`fixed inset-0 bg-black flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out ${isOverlayVisible ? 'bg-opacity-60' : 'bg-opacity-0'}`}>
-          <div className={`bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm w-full mx-auto transition-all duration-300 ease-out ${isOverlayVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}>
+        <div className={`fixed inset-0 flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-out ${isOverlayVisible ? 'bg-black/70 backdrop-blur-sm' : 'bg-opacity-0 backdrop-blur-none'}`}>
+          <div className={`bg-slate-800/80 backdrop-blur-lg border border-slate-700 p-8 rounded-2xl shadow-2xl text-center max-w-sm w-full mx-auto transition-all duration-300 ease-out ${isOverlayVisible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 -translate-y-4'}`}>
             {submitStatus === 'success' ? (
-                <CheckCircleIcon className="h-16 w-16 text-green-500 mx-auto" />
+                <CheckCircleIcon className="h-16 w-16 text-green-400 mx-auto" />
             ) : (
-                <XCircleIcon className="h-16 w-16 text-red-500 mx-auto" />
+                <XCircleIcon className="h-16 w-16 text-red-400 mx-auto" />
             )}
-            <h3 className={`text-2xl font-bold mt-4 ${submitStatus === 'success' ? 'text-gray-800' : 'text-red-700'}`}>
+            <h3 className={`text-2xl font-bold mt-4 ${submitStatus === 'success' ? 'text-slate-100' : 'text-red-400'}`}>
               {submitStatus === 'success' ? 'Success!' : 'Submission Failed'}
             </h3>
-            <div className="mt-2 text-gray-600 text-sm">{submitMessage}</div>
+            <div className="mt-2 text-slate-300 text-sm">{submitMessage}</div>
             <button 
               onClick={() => setSubmitStatus('idle')} 
-              className="mt-6 w-full bg-indigo-600 text-white py-2.5 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200"
+              className="mt-6 w-full bg-purple-600 text-white py-2.5 px-4 rounded-lg hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-purple-500 transition-all duration-200"
             >
               Close
             </button>
