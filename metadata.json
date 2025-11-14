@@ -1,0 +1,5 @@
+{
+  "name": "Portfolio Project - Candidate Screeniing UI",
+  "description": "A simple and elegant job application form for candidates to apply for open positions. The form collects essential information, validates it, and submits it to a screening service.",
+  "requestFramePermissions": []
+}
